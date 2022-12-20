@@ -1,0 +1,16 @@
+<div class="message modal" tabindex="-1" *ngIf="messagesService.message">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Mensagem do Sistema</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>{{ messagesService.message }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="clear btn btn-secondary" data-bs-dismiss="modal" (click)="messagesService.clear()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

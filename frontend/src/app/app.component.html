@@ -1,0 +1,84 @@
+<header class="header">
+  <div class="container">
+    <a href="#" id="logo-buscapet">Busca<span>Pet</span></a>
+
+    <button class="btn-menu-mobile">
+      <i class='bx bx-menu'></i>
+    </button>
+
+    <nav class="header-nav">
+      <button class="btn-menu-mobile btn-menu-close">
+        <i class='bx bx-x'></i>
+      </button>
+
+      <ul>
+        <li class="header-nav_item">
+          <a aria-current="page" href="#menu-home" routerLink="/" class="active">Home</a>
+        </li>
+        <li class="header-nav_item">
+          <a aria-current="page" href="pet/pet-feed">Anúncios</a>
+        </li>
+        <li class="header-nav_item">
+          <a aria-current="page" href="#menu-servicos">Serviços</a>
+        </li>
+        <li class="header-nav_item">
+          <a aria-current="page" href="#menu-contato">Contato</a>
+        </li>
+      </ul>
+    </nav>
+
+    <form class="header-form-login" role="search">
+      <div *ngIf="isLogged; else notIsLogged">
+        <div class="header-form-add">
+          <button class="btn-menu btn-add" data-menu-adicionar="botao">Adicionar <i class='bx bx-chevron-down'></i></button>
+
+          <div data-menu-adicionar="menu">
+            <button class="btn-menu btn-add" type="submit" routerLink="pet/adicionar">Cadastrar Pet <i class='bx bx-plus'></i></button>
+            <button class="btn-menu btn-add" type="submit" routerLink="anuncio/adicionar">Cadastrar Anúncio <i class='bx bx-plus'></i></button>
+          </div>
+        </div>
+
+
+        <div class="btn-group">
+          <button class="btn-menu btn-user" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle"></i>
+          </button>
+
+          <ul class="dropdown-menu">
+            <li><a class="text-decoration-none px-4" href="usuario/usuariologin">Meu Perfil</a></li>
+            <li><a class="text-decoration-none px-4" href="pets/meusPets">Meus Pets</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <a class="text text-danger text-decoration-none px-5" id="logout" type="submit" (click)="onLogoutClick()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <ng-template #notIsLogged>
+        <button class="btn-menu btn-menu_login" type="submit" routerLink="usuario/login">Login</button>
+        <button class="btn-menu " type="submit" routerLink="usuario/cadastro">Criar conta</button>
+      </ng-template>
+    </form>
+  </div>
+</header>
+
+<router-outlet></router-outlet>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-informacoes">
+      <h3 class="footer-logo">Busca<span>Pet</span></h3>
+      <span class="footer-copy">&copy; 2022 BuscaPet</span>
+    </div>
+
+    <nav class="footer-nav">
+      <ul class="footer-nav_ul">
+        <li class="footer-nav_ul-item"><a href="#"><img src="../assets/icons/facebook.svg" alt=""></a></li>
+        <li class="footer-nav_ul-item"><a href="#"><img src="../assets/icons/instagram.svg" alt=""></a></li>
+        <li class="footer-nav_ul-item"><a href="#"><img src="../assets/icons/youtube.svg" alt=""></a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>

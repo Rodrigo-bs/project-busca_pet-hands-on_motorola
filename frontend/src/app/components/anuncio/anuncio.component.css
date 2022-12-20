@@ -1,0 +1,89 @@
+.checkbox-box {
+    margin-top: 5px;
+}
+
+.checkbox-box input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.anuncio-form {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 20px;
+}
+
+.anuncio-form .anuncio-form_photo {
+    max-width: 400px;
+}
+
+.anuncio-form h3 {
+    font-size: 22px;
+    color: #4f4f4f;
+    margin-bottom: 30px;
+}
+
+.anuncio-form [data-image-form="label"].active {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.anuncio-form [data-image-form="label"].active i {
+    display: none;
+}
+
+
+.anuncio-form label[for=ad_photos] {
+    width: 100%;
+    height: 300px;
+    color: #ddd;
+    border: 3px dashed currentColor;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    cursor: pointer;
+}
+
+.anuncio-form input[type=file] {
+    display: none;
+}
+
+.anuncio-form_content .form-label {
+    font-size: 1.2rem;
+    color: #8f8f8f;
+}
+
+.anuncio-form_content input,
+.anuncio-form_content textarea {
+    font-size: 16px;
+}
+
+.anuncio-form_content #ad_description {
+    min-height: 200px;
+}
+
+.anuncio-form_content-endereco {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+.btn-damage {
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .anuncio-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .anuncio-form_content-endereco {
+        grid-template-columns: 1fr;
+    }
+}

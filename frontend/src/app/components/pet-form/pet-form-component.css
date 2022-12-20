@@ -1,0 +1,80 @@
+.pet-form {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 20px;
+}
+
+.pet-form .pet-form_photo {
+    max-width: 400px;
+}
+
+.pet-form h3 {
+    font-size: 22px;
+    color: #4f4f4f;
+    margin-bottom: 30px;
+}
+
+.pet-form [data-image-form="label"].active {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.pet-form [data-image-form="label"].active i {
+    display: none;
+}
+
+.pet-form label[for=pet_foto] {
+    width: 100%;
+    height: 300px;
+    color: #ddd;
+    border: 3px dashed currentColor;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    cursor: pointer;
+}
+
+.pet-form input[type=file] {
+    display: none;
+}
+
+.pet-form_content .form-label {
+    font-size: 1.2rem;
+    color: #8f8f8f;
+}
+
+.pet-form_content input,
+.pet-form_content textarea {
+    font-size: 16px;
+}
+
+.pet-form_content #pet_descricao {
+    min-height: 200px;
+}
+
+.pet-form_content-selects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+.btn-damage {
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .pet-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .pet-form_content-selects {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,40 @@
+<div class="container mt-4 py-5">
+  <h3>Cadastrar Usuário</h3>
+  <div class="row">
+    <form class="row" (ngSubmit)="submit()" #form="ngForm" [formGroup]="UserForm">
+
+      <input type="hidden" name="id" />
+      <div class="col-12 col-sm-6">
+        <div class="mb-3">
+          <label for="user_name" class="form-label">Nome</label>
+          <input type="text" class="form-control" formControlName="user_name" placeholder="Digite seu nome" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="user_email" class="form-label">Email</label>
+          <input type="text" class="form-control" formControlName="user_email" placeholder="Digite seu email" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="user_password" class="form-label">Senha</label>
+          <input type="text" class="form-control" formControlName="user_password" placeholder="Digite sua senha"
+            required>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6">
+        <div class="mb-3">
+          <label for="user_cpf" class="form-label">CPF</label>
+          <input type="text" class="form-control" formControlName="user_cpf" placeholder="Digite seu cpf" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="user_phone" class="form-label">Telefone</label>
+          <input type="text" class="form-control" formControlName="user_phone" placeholder="Digite seu telefone"
+            required>
+        </div>
+      </div>
+
+      <input type="submit" class="btn btn-outline-success col-sm-2 mt-4">
+    </form>
+  </div>
+</div>

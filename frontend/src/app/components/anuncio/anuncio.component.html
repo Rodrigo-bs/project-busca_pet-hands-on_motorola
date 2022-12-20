@@ -1,0 +1,112 @@
+<div class="container">
+  <h3 class="mt-5 py-4">Cadastrar Anúncio</h3>
+  <form class="anuncio-form" (ngSubmit)="submit()" #form="ngForm" [formGroup]="adForm" enctype="multipart/form-data">
+    <div class="anuncio-form_photo">
+      <label for="ad_photos" class="form-label" data-image-form="label"><i class='bx bx-camera'></i></label>
+      <input type="file" class="form-control" id="ad_photos" name="ad_photos" (change)="onFileSelected($event)" accept="image/*" capture="camera">
+    </div>
+
+    <div class="anuncio-form_content">
+      <div class="mb-3">
+        <label for="ad_title" class="form-label">Título do Anúncio</label>
+        <input type="text" class="form-control" id="ad_title" formControlName="title" placeholder="Título do Anúncio"
+          required>
+
+          <div *ngIf="title.invalid && form.submitted">
+            <span class="error-mensage" *ngIf="title.errors?.['required']">Campo Obrigatório.</span>
+          </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="ad_description" class="form-label">Descrição</label>
+
+        <textarea id="ad_description" class="form-control" formControlName="description"
+          placeholder="Uma breve descrição do Pet" required></textarea>
+
+          <div *ngIf="description.invalid && form.submitted">
+            <span class="error-mensage" *ngIf="description.errors?.['required']">Campo Obrigatório.</span>
+          </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="petDoAnuncio" class="form-label">Pet vinculado ao anúncio</label>
+        <select class="form-select" id="petDoAnuncio" formControlName="pet" required>
+          <option selected value="">Selecione.....</option>
+          <option value="{{ pet.id_pet }}" *ngFor="let pet of myPets">{{ pet.pet_name }}</option>
+        </select>
+
+        <div *ngIf="pet.invalid && form.submitted">
+          <span class="error-mensage" *ngIf="pet.errors?.['required']">Campo Obrigatório.</span>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="ad_recompense" class="form-label">Recompensa</label>
+        <input type="number" class="form-control" id="ad_recompense" name="recompense" placeholder="Recompensa $$">
+
+        <div class="checkbox-box">
+          <input type="checkbox" class="form-check-input" id="recompensa-req" data-recompense="recompense">
+          <label class="form-check-label" for="recompensa-req">
+            Recompensa
+          </label>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="idTipoAnuncio" class="form-label">Tipo de Anúncio</label>
+
+        <select class="form-select" formControlName="typeAd" required>
+          <option selected value="">Selecione.....</option>
+          <option value="1">Perdido</option>
+          <option value="2">Encontrado</option>
+        </select>
+
+        <div *ngIf="typeAd.invalid && form.submitted">
+          <span class="error-mensage" *ngIf="typeAd.errors?.['required']">Campo Obrigatório.</span>
+        </div>
+      </div>
+
+      <h3>Endereço</h3>
+
+      <div class="anuncio-form_content-endereco">
+        <div class="mb-3">
+          <label for="ad_cep" class="form-label">CEP</label>
+          <input type="number" id="ad_cep" class="form-control" formControlName="cep" placeholder="0000-0000" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="ad_numero" class="form-label">Número da Casa</label>
+          <input type="text" id="ad_numero" class="form-control" formControlName="house_number" placeholder="Nº 000"
+              required>
+
+          <div *ngIf="house_number.invalid && form.submitted">
+            <span class="error-mensage" *ngIf="house_number.errors?.['required']">Campo Obrigatório.</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="ad_bairro" class="form-label">Bairro</label>
+          <input type="text" id="ad_bairro" class="form-control" formControlName="bairro"
+            placeholder="B. Nova Conquista" required>
+
+          <div *ngIf="bairro.invalid && form.submitted">
+            <span class="error-mensage" *ngIf="bairro.errors?.['required']">Campo Obrigatório.</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="ad_rua" class="form-label">Rua</label>
+          <input type="text" id="ad_rua" class="form-control" formControlName="road" placeholder="R. Esperança"
+              required>
+
+          <div *ngIf="road.invalid && form.submitted">
+            <span class="error-mensage" *ngIf="road.errors?.['required']">Campo Obrigatório.</span>
+          </div>
+        </div>
+      </div>
+
+      <input type="submit" class="btn-sucess" value="Adicionar">
+      <input type="reset" class="btn-damage" value="Cancelar">
+    </div>
+  </form>
+</div>

@@ -1,0 +1,49 @@
+<div class="container-sm container-form-login" *ngFor="let user of users">
+  <h3 class="mt-4 py-2">Minha Conta</h3>
+  <form class="usuario-form" (ngSubmit)="submit()" #form="ngForm" [formGroup]="usuarioForm"
+    enctype="multipart/form-data">
+
+    <div class="usuario-form_photo">
+      <label for="usuario_foto" class="form-label"><i class='bx bx-camera'></i></label>
+      <input type="file" class="form-control" id="usuario_foto" name="usuario_foto" (change)="onFileSelected($event)"
+        required accept="image/*" capture="camera">
+    </div>
+
+    <div class="usuario-form_content">
+      <div class="mb-3">
+        <label for="usuario_nome" class="form-label">Nome <span class="n-op">*</span></label>
+
+        <input type="text" class="form-control"  value="{{ user.user_name }}" id="usuario_nome" disabled="">
+        
+      </div>
+
+      <div class="mb-3">
+        <label for="usuario_email" class="form-label">Email <span class="n-op">*</span></label>
+
+        <input type="text" class="form-control" value="{{ user.user_email }}" id="usuario_email" disabled="">
+      
+      </div>
+
+      <div class="mb-3">
+        <label for="usuario_senha" class="form-label">Senha <span class="n-op">*</span></label>
+
+        <input type="text" class="form-control" value="{{ user.user_password }}" id="usuario_senha" disabled="">
+        
+      </div>
+
+      <div class="mb-3">
+        <label for="usuario_cpf" class="form-label">CPF <span class="n-op">*</span></label>
+
+        <input type="text" class="form-control" value="{{ user.user_cpf }}" id="usuario_cpf" disabled="">
+      </div>
+
+      <div class="mb-3">
+        <label for="usuario_telefone" class="form-label">Telefone <span class="n-op">*</span></label>
+
+        <input type="text" class="form-control" value="{{ user.user_phone}}" id="usuario_telefone" disabled="">
+        
+      </div>
+
+      <input type="submit" class="btn-sucess" value="Lista de Pet">
+      <a href="/home" class="btn-damage">Cancelar</a>
+    </div>

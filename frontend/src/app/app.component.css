@@ -1,0 +1,363 @@
+/* header */
+
+.header {
+    background: #00856F;
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(221,221,221,1);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(221,221,221,1);
+    box-shadow: 0px 4px 5px 0px rgba(221,221,221,1);
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header #logo-buscapet,
+.footer-logo {
+    font-size: 35px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+}
+
+.header #logo-buscapet span {
+    font-weight: 700;
+}
+
+.header .header-nav ul {
+    margin: 0;
+    display: flex;
+}
+
+.header .header-nav ul li {
+    list-style: none;
+    position: relative;
+}
+
+.header .header-nav ul a {
+    color: #d0d0d0;
+    font-size: 16px;
+    padding: 30px 25px;
+    display: block;
+    text-decoration: none;
+}
+
+.header .header-nav ul a:hover,
+.header .header-nav ul a.active {
+    color: #ffffff;
+    transition: .3s ease;
+}
+
+.header .header-nav ul a::before {
+    content: '';
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+    transition: .3s ease;
+    bottom: 0;
+    left: 0;
+}
+
+.header .header-nav ul li:hover a::before,
+.header .header-nav ul a.active::before {
+    opacity: 1;
+}
+
+.header .header-form-login > div {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.header .header-form-login button[data-menu-adicionar=botao] {
+    display: none;
+}
+
+.header .header-form-login .btn-menu {
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 20px;
+    transition: .3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.header .header-form-login .btn-menu.btn-add {
+    padding-right: 40px;
+}
+
+.header .header-form-login .btn-menu.btn-add i {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    transition: .1s ease;
+}
+
+.header .header-form-login .btn-menu.btn-add:hover i {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.header .header-form-login .btn-menu + .btn-menu {
+    margin-left: 10px;
+}
+
+.header .header-form-login .btn-menu:hover {
+    background: #fff;
+    color: #00856F;
+}
+
+.header .header-form-login .btn-menu_login {
+    border: none;
+    border-radius: 0;
+    font-size: 18px;
+}
+
+.header .header-form-login .btn-menu_login:hover {
+    background: none;
+    color: #fff;
+    text-decoration: underline;
+}
+
+.header .header-form-login .btn-user {
+    border: none;
+    font-size: 25px;
+    padding: 10px 18px;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+@media screen and (max-width: 1200px) {
+    .header-form-add {
+        padding: 5px;
+    }
+    
+    .header .header-form-login button[data-menu-adicionar=botao] {
+        display: block;
+    }
+
+    .header .header-form-login div[data-menu-adicionar=menu] {
+        width: 250px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #00856F;
+        z-index: 10;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: 0 0 5px rgba(0,0,0,.3);
+        border-radius: 5px;
+        padding: 10px 15px;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .header .header-form-login button[data-menu-adicionar=botao]:hover ~ div[data-menu-adicionar=menu],
+    .header .header-form-login .header-form-add:hover > button ~ div[data-menu-adicionar=menu],
+    .header .header-form-login div[data-menu-adicionar=menu]:hover {
+        pointer-events: all;
+        opacity: 1;
+    }
+
+    .header .header-form-login div[data-menu-adicionar=menu] button + button {
+        margin: 0;
+    }
+}
+
+.btn-menu-mobile {
+    display: block;
+    font-size: 45px;
+    padding: 0;
+    height: 45px;
+    display: flex;
+    align-content: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #fff;
+    margin: 10px 0;
+    display: none;
+}
+
+.btn-menu-close {
+    position: absolute;
+    right: 10px;
+    z-index: 13;
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .btn-menu-close,
+    .btn-menu-mobile {
+        display: flex;
+    }
+
+    .header .header-nav,
+    .header .header-form-login {
+        position: fixed;
+        display: none;
+    }
+
+    .header .header-form-login .btn-menu {
+        display: none;
+    }
+
+    .header .header-form-login {
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .header .header-nav {
+        background: #00856F;
+        width: 100%;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 11;
+    }
+
+    .header .header-nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .header .header-nav ul a {
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .header .header-nav ul a::before,
+    .header .header-nav ul a.active::before {
+        display: none;
+    }
+
+    .header-form-login {
+        z-index: 12;
+        bottom: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .header-form-login > div {
+        flex-direction: column-reverse;
+    }
+
+    .header .header-form-login [data-menu-adicionar="botao"] {
+        display: none !important;
+    }
+
+    .header .header-form-login div[data-menu-adicionar="menu"] {
+        margin-top: 20px;
+        /* width: 100%; */
+        display: none;
+        position: static;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .header .header-form-login .btn-group {
+        display: none;
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .header .header-nav.active {
+        display: block;
+    }
+
+    .header .header-form-login.active div[data-menu-adicionar="menu"],
+    .header .header-form-login.active .btn-group {
+        opacity: 1;
+        display: flex;
+    }
+
+    .header .header-form-login.active .btn-menu  {
+        display: block;
+    }
+
+    .header .header-form-login .btn-group button {
+        margin: 0;
+    }
+}
+
+/* footer */
+
+.footer {
+    margin-top: 60px;
+    background: #00856F;
+    padding: 60px 0;
+}
+
+.footer .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.footer .container .footer-copy {
+    color: #fff;
+}
+
+.footer .container .footer-nav_ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer .container .footer-nav_ul li {
+    list-style: none;
+}
+
+.footer .container .footer-nav_ul li + li {
+    margin-left: 10px;
+}
+
+.footer .container .footer-nav_ul img {
+    width: 25px;
+}
+
+@media screen and (max-width: 500px) {
+    .footer {
+        padding: 40px 0;
+    }
+
+    .footer .container {
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+
+    .footer .container .footer-nav {
+        width: 100%;
+    }
+
+    .footer .container .footer-nav_ul {
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .footer .container .footer-nav_ul img  {
+        width: 35px;
+    }
+
+    .footer .container .footer-informacoes {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.image {
+   object-fit: cover;
+}

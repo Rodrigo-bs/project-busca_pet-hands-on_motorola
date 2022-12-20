@@ -1,0 +1,39 @@
+Component.html
+<div class="mb-3">
+  <webcam
+        [trigger]="triggerObservable"
+        (imageCapture)="handleImage($event)"></webcam>
+
+    <button class="btn btn-success" (click)="triggerSnapshot();">Tirar Foto</button>
+</div>
+<div class="mb-3">
+    <div id="results">Imagem capturada, aqui...</div>
+    <img src="{{ captureImage }}" height="300px">
+</div>
+
+Component.ts
+// WEBCAM/CAMERA INICIO
+  private trigger: Subject<void> = new Subject();
+  public webcamImage!: WebcamImage;
+  private nextWebcam: Subject<void> = new Subject();
+  captureImage  = '';
+
+  public triggerSnapshot(): void {
+    this.trigger.next();
+  }
+
+  public handleImage(webcamImage: WebcamImage): void {
+    this.webcamImage = webcamImage;
+    this.captureImage = webcamImage!.imageAsDataUrl;
+    console.info('received webcam image', this.captureImage);
+  }
+
+  public get triggerObservable(): Observable<void> {
+    return this.trigger.asObservable();
+  }
+
+  public get nextWebcamObservable(): Observable<void> {
+    return this.nextWebcam.asObservable();
+  }
+
+  // WEBCAM/CAMERA FIM

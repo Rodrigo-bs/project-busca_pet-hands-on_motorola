@@ -1,0 +1,50 @@
+
+.usuario-form {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 20px;
+}
+
+
+.usuario-form label[for=usuario_foto] {
+    width: 100%;
+    height: 300px;
+    color: #ddd;
+    border: 3px dashed currentColor;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    cursor: pointer;
+}
+
+.usuario-form input[type=file] {
+    display: none;
+}
+
+.usuario-form_content .form-label {
+    font-size: 1.2rem;
+    color: #8f8f8f;
+}
+
+.usuario-form_content input,
+.usuario-form_content textarea {
+    font-size: 16px;
+}
+
+.usuario-form_content #usuario_descricao {
+    min-height: 200px;
+}
+
+.usuario-form_content-selects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+.btn-damage {
+    margin-left: 10px;
+}

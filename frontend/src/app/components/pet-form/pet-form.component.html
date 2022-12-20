@@ -1,0 +1,104 @@
+<div class="container">
+  <h3 class="mt-4 py-2">Cadastrar Pet</h3>
+  <form class="pet-form" (ngSubmit)="submit()" #form="ngForm" [formGroup]="petForm" enctype="multipart/form-data">
+    <div class="pet-form_photo">
+      <label for="pet_foto" class="form-label" data-image-form="label"><i class='bx bx-camera'></i></label>
+      <input type="file" class="form-control" id="pet_foto" name="pet_foto" (change)="onFileSelected($event)"
+      required accept="image/*" capture="camera">
+    </div>
+    
+    <div class="pet-form_content">
+      <div class="mb-3">
+        <label for="pet_nome" class="form-label">N. do Animal <span class="n-op">*</span></label>
+
+        <input type="text" class="form-control" id="pet_nome" formControlName="name" placeholder="Nome do Pet"
+          required>
+        <div *ngIf="name.invalid && form.submitted">
+          <span class="error-mensage" *ngIf="name.errors?.['required']">Campo Obrigatório.</span>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="pet_descricao" class="form-label">Descrição</label>
+
+        <textarea id="pet_descricao" class="form-control" formControlName="description"
+          placeholder="Uma breve descrição do Pet" required></textarea>
+      </div>
+
+      <h3>Caracteristicas</h3>
+
+      <div class="pet-form_content-selects">
+        <div>
+          <label for="pet_perdido" class="form-label">Pet Perdido? <span class="n-op">*</span></label>
+  
+          <select class="form-select" formControlName="is_lost" required>
+            <option selected value="">Selecione.....</option>
+            <option value="1">Sim</option>
+            <option value="0">Não</option>
+          </select>
+  
+          <div *ngIf="is_lost.invalid && form.submitted">
+            <span class="error-mensage" *ngIf="is_lost.errors?.['required']">Campo Obrigatório.</span>
+          </div>
+        </div>
+    
+        <div>
+          <label for="pet_cor" class="form-label">Cor do Pet <span class="n-op">*</span></label>
+  
+          <select class="form-select" formControlName="color" name="id_cor_pelagem_fk" required>
+            <option selected value="">Selecione.....</option>
+            <option *ngFor="let color of colors" value="{{ color.id_color }}">{{ color.color_name }}</option>
+          </select>
+    
+          <div *ngIf="color.invalid && form.submitted">
+            <span class="error-mensage" *ngIf="color.errors?.['required']">Campo Obrigatório.</span>
+          </div>
+        </div>
+  
+        <div>
+          <label for="pet_porte" class="form-label">Porte do Pet <span class="n-op">*</span></label>
+  
+          <select class="form-select" formControlName="fur" name="id_porte_fk" required>
+            <option selected value="">Selecione.....</option>
+            <option *ngFor="let fur of furs" value="{{ fur.id_fur }}">{{ fur.fur_name }}</option>
+          </select>
+    
+          <div *ngIf="fur.invalid && form.submitted">
+            <span class="error-mensage" *ngIf="fur.errors?.['required']">Campo Obrigatório.</span>
+          </div>
+        </div>
+  
+        <div>
+          <label for="pet_categoria" class="form-label">Categoria do Pet <span class="n-op">*</span></label>
+  
+          <select class="form-select" formControlName="category" required>
+            <option selected value="">Selecione.....</option>
+            <option *ngFor="let category of categorys" value="{{ category.id_category }}">{{ category.category_name }}
+            </option>
+          </select>
+    
+          <div *ngIf="category.invalid && form.submitted">
+            <span class="error-mensage" *ngIf="category.errors?.['required']">Campo Obrigatório.</span>
+          </div>
+        </div>
+        
+        <div>
+          <label for="pet_raca" class="form-label">Raça do Pet <span class="n-op">*</span></label>
+  
+          <select class="form-select" formControlName="race" required>
+            <option selected value="">Selecione.....</option>
+            <option *ngFor="let race of races" value="{{ race.id_race }}">{{ race.race_name }}</option>
+          </select>
+    
+          <div *ngIf="race.invalid && form.submitted">
+            <span class="error-mensage" *ngIf="race.errors?.['required']">Campo Obrigatório.</span>
+          </div>
+        </div>
+      </div>
+      
+      <input type="submit" class="btn-sucess"  value="Adicionar">
+
+      <a href="/home" class="btn-damage">Cancelar</a>
+    </div>
+  </form>
+</div>

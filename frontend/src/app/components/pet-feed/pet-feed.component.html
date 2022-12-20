@@ -1,0 +1,38 @@
+<div class="container  mt-5 py-4">
+  <h2 class="mb-5">Lista de Pets</h2>
+  <form class="row g-3">
+    <div class="col-auto">
+      <label for="buscapet" class="visually-hidden">Busque por um Pet</label>
+      <input type="text" readonly class="form-control-plaintext" value="Busque por um Pet">
+    </div>
+    <div class="col-8">
+      <label for="description" class="visually-hidden">Descrição do Pet</label>
+      <input type="text" class="form-control" name="search" [(ngModel)]="searchText"  placeholder="Descrição do Pet">
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-success mb-3"><i class="bi bi-search-heart-fill"></i></button>
+    </div>
+  </form>
+  <div *ngFor="let pet of pets | filter:searchText">
+    <div class="card mb-3 mt-3 text-bg-light" *ngIf="pet.pet_is_register_in_db" >
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="http://localhost:5000/images/tmp/{{ pet.pet_photo }}" class="image" alt="Imagem do Pet" width="420px" height="100%">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Dados do Pet</h5>
+              <p class="card-text"><b>Nome:</b> {{ pet.pet_name }}.</p>
+              <p class="card-text"><b>Descrição:</b> {{ pet.pet_description }}.</p>
+              <p class="card-text" *ngIf="pet.id_category_fk == 1"><b>Tipo de Pet:</b> Cachorro</p>
+              <p class="card-text" *ngIf="pet.id_category_fk == 2"><b>Tipo de Pet:</b> Gato</p>
+              <p class="card-text"><b>Raça do Pet:</b> {{ racas[pet.id_race_fk].race_name }}</p>
+              <p class="card-text"><b>Pet Perdido: </b>{{ pet.pet_lost ? 'Sim' : 'Não' }}</p>
+              <p class="card-text"><small class="text-muted">Criado em {{ pet.pet_date_register | date : "dd/MM/YY 'às' hh:mm:ss" }}</small></p>
+              <a class="button-card" href="tel:+55">Contato</a>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

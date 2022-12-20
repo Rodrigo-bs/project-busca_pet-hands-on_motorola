@@ -1,0 +1,10 @@
+a.button-card {
+    width: fit-content;
+    font-size: 18px;
+    color: #fff;
+    background: #00856F;
+    display: block;
+    padding: 5px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+}

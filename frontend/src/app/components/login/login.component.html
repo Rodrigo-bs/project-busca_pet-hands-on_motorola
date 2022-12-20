@@ -1,0 +1,26 @@
+<div class="container-sm container-form-login">
+    <h3 class="mt-5 py-4">Realizar Login</h3>
+
+    <form method="post" #frm="ngForm" (ngSubmit)="login(frm)">
+
+        <div class="mb-3 input-box">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" [(ngModel)]="usuario.email" required>
+        </div>
+
+        <div class="mb-3 input-box">
+            <label class="form-label">Senha</label>
+            <input type="password" name="senha" class="form-control" [(ngModel)]="usuario.senha" required>
+        </div>
+
+        <div id="formFooter">
+            <a class="underlineHover" href="#" >Esqueci minha senha</a>
+        </div>
+
+        <span class="d-block alert alert-danger mt-3 pt-2 pb-2" *ngIf="mensagemDeErro">{{ mensagemDeErro }}</span>
+
+        <div class="input-box">
+            <input type="submit" class="btn btn-success col-sm-2 mt-4" [disabled]="frm.invalid" value="Enviar">
+        </div>
+    </form>
+</div>
